@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>個人履歷</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f5f5f5;
+    }
+
+    .container {
+      width: 80%;
+      margin: 40px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .section {
+      margin-top: 20px;
+    }
+
+    .section h2 {
+      border-bottom: 2px solid #333;
+      padding-bottom: 5px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 15px;
+      border: none;
+      background-color: #333;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+
+<div id="container">
+  <h1>我的履歷</h1>
+
+  <div class="section">
+    <h2>基本資料</h2>
+    <p>學號：AU114018047</p>
+    <p>姓名：你的名字</p>
+    <p>Email：example@email.com</p>
+  </div>
+
+  <div class="section">
+    <h2>學歷</h2>
+    <p>學校：你的學校</p>
+    <p>科系：你的科系</p>
+  </div>
+
+  <div class="section">
+    <h2>技能</h2>
+    <ul>
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>自我介紹</h2>
+    <p id="intro">我是一個努力學習中的學生。</p>
+    <button onclick="changeText()">點我改變自我介紹</button>
+  </div>
+</div>
+
+<script>
+  function changeText() {
+    document.getElementById("intro").innerText = "我正在學習前端，未來希望成為專業人才！";
+  }
+</script>
+
+</body>
+</html>
