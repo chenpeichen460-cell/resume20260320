@@ -5,64 +5,114 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>我的履歷</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f5f5f5;
-    }
+ body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background: #eaeaea;
+}
 
-    .container {
-      max-width: 900px;
-      margin: 40px auto;
-      background: white;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
+/* 整體版面 */
+.container {
+  display: flex;
+  max-width: 1000px;
+  margin: 40px auto;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
 
-    .header {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
+/* 左側 */
+.container > div:first-child {
+  width: 60%;
+  padding: 30px;
+}
 
-    .header img {
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 50%;
-    }
+/* 右側（自動抓 header + 其他區塊） */
+.container > div:last-child {
+  width: 40%;
+  background: #1f4d4f;
+  color: white;
+  padding: 30px;
+}
 
-    h1 {
-      margin: 0;
-    }
+/* 頭像 */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
 
-    .section {
-      margin-top: 30px;
-    }
+.header img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 5px solid white;
+  margin-bottom: 10px;
+}
 
-    .section h2 {
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 5px;
-    }
+/* 名字 */
+h1 {
+  margin: 10px 0 5px;
+}
 
-    ul {
-      padding-left: 20px;
-    }
+/* 區塊 */
+.section {
+  margin-top: 25px;
+}
 
-    button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      border: none;
-      background: #4CAF50;
-      color: white;
-      border-radius: 8px;
-      cursor: pointer;
-    }
+/* 標題樣式 */
+.section h2 {
+  display: inline-block;
+  padding: 5px 15px;
+  border-radius: 20px;
+  background: #1f4d4f;
+  color: white;
+  font-size: 16px;
+}
 
-    button:hover {
-      background: #45a049;
-    }
+/* 右側標題 */
+.container > div:last-child .section h2 {
+  background: white;
+  color: #1f4d4f;
+}
+
+/* 清單 */
+ul {
+  padding-left: 20px;
+}
+
+/* 按鈕 */
+button {
+  margin-top: 10px;
+  padding: 8px 16px;
+  border: none;
+  background: #1f4d4f;
+  color: white;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #16393b;
+}
+
+/* 技能條（自動套用） */
+ul li {
+  margin-bottom: 8px;
+}
+
+/* 手機版 */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .container > div {
+    width: 100% !important;
+  }
+}
   </style>
 </head>
 <body>
