@@ -127,12 +127,7 @@ ul li {
       <p>電話：0912-345-678</p>
     </div>
   </div>
-  <audio controls>
-
-  <source src="music/MUSIC.wav" type="audio/wav">
-Your browser does not support the audio element.
-</audio>
-
+  
 
   <div class="section">
     <h2>自我介紹</h2>
@@ -177,6 +172,23 @@ function changeIntro() {
   document.getElementById("intro").innerText = texts[random];
 }
 </script>
+<audio id="bgm" autoplay loop playsinline>
+  <source src="music/MUSIC.wav" type="audio/wav">
+</audio>
 
+<script>
+  const audio = document.getElementById("bgm");
+
+  // 嘗試直接播放
+  audio.play().catch(() => {
+    // 若被擋，快速解除靜音再播放
+    audio.muted = true;
+    audio.play();
+
+    setTimeout(() => {
+      audio.muted = false;
+    }, 100);
+  });
+</script>
 </body>
 </html>
