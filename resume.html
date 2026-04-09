@@ -1,158 +1,180 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
+<!DOCTYPE html>
+<html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>我的履歷</title>
+  <title>陳姵辰的履歷</title>
   <style>
- body {
-  font-family: 'Segoe UI', sans-serif;
-  margin: 0;
-  background: #eaeaea;
-}
+    body {
+      font-family: 'Segoe UI', "Microsoft JhengHei", sans-serif;
+      margin: 0;
+      background: #f4f7f6;
+      color: #333;
+    }
 
-/* 整體版面 */
-.container {
-  display: flex;
-  max-width: 1000px;
-  margin: 40px auto;
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-}
+    .container {
+      display: flex;
+      max-width: 1000px;
+      margin: 40px auto;
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
 
-/* 左側 */
-.container > div:first-child {
-  width: 60%;
-  padding: 30px;
-}
+    /* 左側主要內容 */
+    .main-content {
+      width: 65%;
+      padding: 40px;
+    }
 
-/* 右側（自動抓 header + 其他區塊） */
-.container > div:last-child {
-  width: 40%;
-  background: #1f4d4f;
-  color: white;
-  padding: 30px;
-}
+    /* 右側側邊欄 */
+    .sidebar {
+      width: 35%;
+      background: #1f4d4f;
+      color: white;
+      padding: 40px;
+      text-align: center;
+    }
 
-/* 頭像 */
-.header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
+    /* 個人照片 */
+    .profile-img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 5px solid rgba(255,255,255,0.2);
+      margin-bottom: 20px;
+      object-fit: cover;
+    }
 
-.header img {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  border: 5px solid white;
-  margin-bottom: 10px;
-}
+    h1 { margin: 10px 0; font-size: 28px; }
+    h2 { font-size: 18px; border-left: 4px solid #1f4d4f; padding-left: 10px; margin-bottom: 20px; }
+    
+    .sidebar h2 { border-left: 4px solid #fff; color: #fff; margin-top: 30px; }
 
-/* 名字 */
-h1 {
-  margin: 10px 0 5px;
-}
+    /* 技能進度條 */
+    .skill-container { margin-bottom: 15px; }
+    .skill-bar {
+      background: #eee;
+      height: 10px;
+      border-radius: 5px;
+      margin-top: 5px;
+    }
+    .skill-per {
+      height: 10px;
+      background: #1f4d4f;
+      border-radius: 5px;
+      position: relative;
+    }
 
-/* 區塊 */
-.section {
-  margin-top: 25px;
-}
+    /* 作品展示區 */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 15px;
+    }
+    .portfolio-item {
+      background: #eee;
+      height: 120px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: #777;
+      border: 1px dashed #ccc;
+    }
 
-/* 標題樣式 */
-.section h2 {
-  display: inline-block;
-  padding: 5px 15px;
-  border-radius: 20px;
-  background: #1f4d4f;
-  color: white;
-  font-size: 16px;
-}
+    /* 播放器樣式 */
+    audio { width: 100%; margin-top: 10px; }
 
-/* 右側標題 */
-.container > div:last-child .section h2 {
-  background: white;
-  color: #1f4d4f;
-}
+    .btn-action {
+      background: #1f4d4f;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 10px;
+    }
 
-/* 清單 */
-ul {
-  padding-left: 20px;
-}
+    .btn-action:hover { background: #357a7d; }
 
-/* 按鈕 */
-button {
-  margin-top: 10px;
-  padding: 8px 16px;
-  border: none;
-  background: #1f4d4f;
-  color: white;
-  border-radius: 20px;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #16393b;
-}
-
-/* 技能條（自動套用） */
-ul li {
-  margin-bottom: 8px;
-}
-
-/* 手機版 */
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-  }
-
-  .container > div {
-    width: 100% !important;
-  }
-}
+    @media (max-width: 768px) {
+      .container { flex-direction: column; }
+      .main-content, .sidebar { width: 100%; }
+    }
   </style>
 </head>
 <body>
 
 <div class="container">
-  <div class="header">
-    <!-- 照片放在 images 資料夾 -->
-    <img src="images/photo.jpg" alt="個人照片">
-    <div>
-      <h1>陳姵辰</h1>
-      <p>電子郵件：chenpeichen460@gmail.com</p>
-      <p>學號:114018047</p>
+  <div class="sidebar">
+    <img src="images/photo.jpg" alt="陳姵辰" class="profile-img">
+    <h1>陳姵辰</h1>
+    <p>學號：114018047</p>
+    <p style="font-size: 14px;">chenpeichen460@gmail.com</p>
+
+    <h2>興趣專長</h2>
+    <div style="text-align: left; font-size: 14px;">
+      <p>🎨 創意繪畫與設計</p>
+      <p>🧶 手工編織小物製作</p>
+      <p>🎹 鋼琴演奏與音樂欣賞</p>
     </div>
-  </div>
-  <audio controls>
-  
-  <source src="music/MUSIC.wav" type="audio/wav">
-Your browser does not support the audio element.
-</audio>
 
-  <div class="section">
-    <h2>自我介紹</h2>
-    <p id="intro">我是一位大學生，喜歡在無聊的時候畫畫打發時間，編織一些小物也是我的日常。</p>
-    <button onclick="changeIntro()">換一句自我介紹</button>
+    <h2>背景音樂</h2>
+    <audio controls>
+      <source src="music/MUSIC.wav" type="audio/wav">
+    </audio>
   </div>
 
-  <div class="section">
-    <h2>學歷</h2>
-    <ul>
-      <li>亞洲大學 - 聽語系</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2>技能</h2>
-    <ul>
-      <li>編織/彈鋼琴</li>
+  <div class="main-content">
+    <div class="section">
+      <h2>關於我</h2>
+      <p id="intro" style="line-height: 1.6;">我目前就讀於亞洲大學聽語系，性格靜中帶動。在課業之餘，我熱衷於透過雙手創造事物，無論是鋼琴上的旋律，還是勾針下的毛線，都是我表達創意的方式。</p>
     
-    </ul>
-  </div>
+    </div>
+
+    <div class="section">
+      <h2>教育背景</h2>
+      <p><strong>亞洲大學</strong> | 聽力暨語言治療學系<br><small>2024 - 至今</small></p>
+    </div>
+
+    <div class="section">
+      <h2>專業與核心技能</h2>
+      <div class="skill-container">
+        <span>手工編織</span>
+        <div class="skill-bar"><div class="skill-per" style="width: 85%;"></div></div>
+      </div>
+      <div class="skill-container">
+        <span>鋼琴演奏</span>
+        <div class="skill-bar"><div class="skill-per" style="width: 75%;"></div></div>
+      </div>
+      <div class="skill-container">
+        <span>插畫設計</span>
+        <div class="skill-bar"><div class="skill-per" style="width: 60%;"></div></div>
+      </div>
+    </div>
+
+
+<script>
+function changeIntro() {
+  const texts = [
+    "我是一位大學生，喜歡在無聊的時候畫畫打發時間，編織一些小物也是我的日常。",
+    "音樂與藝術是我生活的調劑，我享受在鋼琴旋律中尋找靈感的時刻。",
+    "專注於聽語專業的學習，同時不斷挑戰手工藝的無限可能。"
+  ];
+  const random = Math.floor(Math.random() * texts.length);
+  document.getElementById("intro").innerText = texts[random];
+}
+</script>
+
+</body>
+</html>
 
 <script>
 function changeIntro() {
